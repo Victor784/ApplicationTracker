@@ -36,12 +36,14 @@
             this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Details = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.searchTextBox = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
             this.btnClear = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.progressBarLowVal = new System.Windows.Forms.Label();
+            this.progressBarHighVal = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -126,6 +128,15 @@
             this.Details.ReadOnly = true;
             this.Details.Width = 125;
             // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Visible = false;
+            this.Id.Width = 125;
+            // 
             // btnUpdate
             // 
             this.btnUpdate.Location = new System.Drawing.Point(300, 76);
@@ -163,31 +174,39 @@
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
-            // button1
+            // progressBar
             // 
-            this.button1.Location = new System.Drawing.Point(36, 24);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(95, 28);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Test";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.progressBar.Location = new System.Drawing.Point(49, 32);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(291, 10);
+            this.progressBar.TabIndex = 10;
             // 
-            // Id
+            // progressBarLowVal
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 125;
+            this.progressBarLowVal.AutoSize = true;
+            this.progressBarLowVal.Location = new System.Drawing.Point(39, 9);
+            this.progressBarLowVal.Name = "progressBarLowVal";
+            this.progressBarLowVal.Size = new System.Drawing.Size(17, 20);
+            this.progressBarLowVal.TabIndex = 8;
+            this.progressBarLowVal.Text = "0";
+            // 
+            // progressBarHighVal
+            // 
+            this.progressBarHighVal.AutoSize = true;
+            this.progressBarHighVal.Location = new System.Drawing.Point(317, 9);
+            this.progressBarHighVal.Name = "progressBarHighVal";
+            this.progressBarHighVal.Size = new System.Drawing.Size(40, 20);
+            this.progressBarHighVal.TabIndex = 9;
+            this.progressBarHighVal.Text = "Goal";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 450);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.progressBarHighVal);
+            this.Controls.Add(this.progressBarLowVal);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnSearch);
             this.Controls.Add(this.searchTextBox);
@@ -213,12 +232,14 @@
         private TextBox searchTextBox;
         private Button btnSearch;
         private Button btnClear;
-        private Button button1;
         private DataGridViewTextBoxColumn Position;
         private DataGridViewTextBoxColumn Company;
         private DataGridViewTextBoxColumn Date;
         private DataGridViewTextBoxColumn Status;
         private DataGridViewTextBoxColumn Details;
         private DataGridViewTextBoxColumn Id;
+        private ProgressBar progressBar;
+        private Label progressBarLowVal;
+        private Label progressBarHighVal;
     }
 }

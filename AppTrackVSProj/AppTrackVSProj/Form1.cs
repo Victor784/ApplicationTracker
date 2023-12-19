@@ -134,8 +134,20 @@ namespace AppTrackVSProj
             List<SentApplication> dbData = repo.GetAllItems();
             foreach(SentApplication elem in dbData)
             {
-                dataGridView.Rows.Add(elem.PositionName, elem.Company, elem.Date, elem.Status, elem.Details);
+                dataGridView.Rows.Add(elem.PositionName, elem.Company, elem.Date, elem.Status, elem.Details, elem.Id) ;
+                progressBar.Increment(1);
             }
         }
+        private void DataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            progressBar.Increment(1);
+        }
+
+        private void DataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            int newVal = progressBar.Value - 1 ;
+            progressBar.Value = newVal;
+        }
+
     }
 }
