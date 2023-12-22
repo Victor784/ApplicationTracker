@@ -44,6 +44,7 @@
             this.progressBar = new System.Windows.Forms.ProgressBar();
             this.progressBarLowVal = new System.Windows.Forms.Label();
             this.progressBarHighVal = new System.Windows.Forms.Label();
+            this.buttonProgressBarTest = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -199,11 +200,22 @@
             this.progressBarHighVal.TabIndex = 9;
             this.progressBarHighVal.Text = "Goal";
             // 
+            // buttonProgressBarTest
+            // 
+            this.buttonProgressBarTest.Location = new System.Drawing.Point(377, 13);
+            this.buttonProgressBarTest.Name = "buttonProgressBarTest";
+            this.buttonProgressBarTest.Size = new System.Drawing.Size(37, 28);
+            this.buttonProgressBarTest.TabIndex = 11;
+            this.buttonProgressBarTest.Text = "buttonProgressBarTest";
+            this.buttonProgressBarTest.UseVisualStyleBackColor = true;
+            this.buttonProgressBarTest.Click += new System.EventHandler(this.buttonProgressBarTest_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(816, 450);
+            this.Controls.Add(this.buttonProgressBarTest);
             this.Controls.Add(this.progressBarHighVal);
             this.Controls.Add(this.progressBarLowVal);
             this.Controls.Add(this.progressBar);
@@ -241,5 +253,6 @@
         private ProgressBar progressBar;
         private Label progressBarLowVal;
         private Label progressBarHighVal;
+        private Button buttonProgressBarTest;
     }
 }

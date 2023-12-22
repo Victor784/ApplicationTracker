@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppTrackVSProj
 {
-    //partial class ProgressBar
-    //{
-
-    //}
+    internal class ProgressBar
+    {
+    }
 }

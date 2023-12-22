@@ -10,7 +10,19 @@ namespace AppTrackVSProj
         public Form1()
         {
             InitializeComponent();
+            dataGridView.RowsAdded += DataGridView_RowsAdded;
+            dataGridView.RowsRemoved += DataGridView_RowsRemoved;
         }
+
+        //private void DataGridView_RowsRemoved(object? sender, DataGridViewRowsRemovedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
+
+        //private void DataGridView_RowsAdded(object? sender, DataGridViewRowsAddedEventArgs e)
+        //{
+        //    throw new NotImplementedException();
+        //}
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -137,17 +149,72 @@ namespace AppTrackVSProj
                 dataGridView.Rows.Add(elem.PositionName, elem.Company, elem.Date, elem.Status, elem.Details, elem.Id) ;
                 progressBar.Increment(1);
             }
+            if(dbData.Count < 25 ) { progressBar.Maximum = 25; }
+            else if (dbData.Count >= 25 && dbData.Count < 50) { progressBar.Maximum = 50; } 
+            else if (dbData.Count >= 50 && dbData.Count < 100) { progressBar.Maximum = 100; }
+            else if (dbData.Count >= 100 && dbData.Count < 200) { progressBar.Maximum = 200; }
+            else if (dbData.Count >= 200 && dbData.Count < 250) { progressBar.Maximum = 250; }
+            else if (dbData.Count >= 250 && dbData.Count < 500) { progressBar.Maximum = 500; }
+            else if (dbData.Count >= 500 && dbData.Count < 750) { progressBar.Maximum = 750; }
+            else if (dbData.Count >= 750 && dbData.Count < 1000) { progressBar.Maximum = 1000; }
+
+            progressBarHighVal.Text = progressBar.Maximum.ToString();
         }
-        private void DataGridView_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        public int getNextProgressMaximum(int oldMax)
+        {
+            switch (oldMax)
+            {
+                case 25:
+                    return 50;
+                    break;
+                case 50:
+                    return 100;
+                    break;
+                case 100:
+                    return 200;
+                    break;
+                case 200:
+                    return 250;
+                    break;
+                case 250:
+                    return 500;
+                    break;
+                case 500:
+                    return 750;
+                    break;
+                case 750:
+                    return 1000;
+                    break;
+                default:
+                    return 1000;
+            }
+        }
+        private void DataGridView_RowsAdded(object? sender, DataGridViewRowsAddedEventArgs e)
         {
             progressBar.Increment(1);
+            if(progressBar.Value >= progressBar.Maximum)
+            {
+                progressBar.Maximum = getNextProgressMaximum(progressBar.Maximum);
+                progressBarHighVal.Text = progressBar.Maximum.ToString();
+            }
         }
 
-        private void DataGridView_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        private void DataGridView_RowsRemoved(object? sender, DataGridViewRowsRemovedEventArgs e)
         {
             int newVal = progressBar.Value - 1 ;
             progressBar.Value = newVal;
         }
 
+        private void buttonProgressBarTest_Click(object sender, EventArgs e)
+        {
+        
+                dataGridView.Rows.Add(1, 1, 1, "Application sent", 1);
+                dataGridView.Rows.Add(2, 2, 2, "Application sent", 2);
+                dataGridView.Rows.Add(3, 3, 3, "Application sent", 3);
+                dataGridView.Rows.Add(4, 4, 4, "Application sent", 4);
+                dataGridView.Rows.Add(5, 5, 5, "Application sent", 5);
+                dataGridView.Rows.Add(6, 6, 6, "Application sent", 6);
+                dataGridView.Rows.Add(7, 7, 7, "Application sent", 7);
+        }
     }
 }
