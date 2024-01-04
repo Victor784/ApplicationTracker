@@ -36,3 +36,6 @@ C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrack
 C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrackVSProj\AppTrackVSProj\bin\Debug\net6.0-windows\runtimes\win-x86\native\e_sqlite3.dll
 C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrackVSProj\AppTrackVSProj\obj\Debug\net6.0-windows\AppTrackVSProj.csproj.CopyComplete
 C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrackVSProj\AppTrackVSProj\bin\Debug\net6.0-windows\localstorage\localstorage.db
+C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrackVSProj\AppTrackVSProj\obj\Debug\net6.0-windows\AppTrackVSProj.sourcelink.json
+C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrackVSProj\AppTrackVSProj\obj\Debug\net6.0-windows\AppTrackVSProj.Properties.Resources.resources
+C:\Users\victo\Desktop\C#Projects\ApplicationTracker\ApplicationTracker\AppTrackVSProj\AppTrackVSProj\obj\Debug\net6.0-windows\AppTrackVSProj.Form3.resources

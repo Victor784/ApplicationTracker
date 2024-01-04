@@ -7,22 +7,16 @@ namespace AppTrackVSProj
 {
     public partial class Form1 : Form
     {
+
+        public event EventHandler FormMoved;
         public Form1()
         {
             InitializeComponent();
             dataGridView.RowsAdded += DataGridView_RowsAdded;
             dataGridView.RowsRemoved += DataGridView_RowsRemoved;
+            this.StartPosition = FormStartPosition.Manual;
+            this.Location = new System.Drawing.Point(500, 250);
         }
-
-        //private void DataGridView_RowsRemoved(object? sender, DataGridViewRowsRemovedEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //private void DataGridView_RowsAdded(object? sender, DataGridViewRowsAddedEventArgs e)
-        //{
-        //    throw new NotImplementedException();
-        //}
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -40,7 +34,7 @@ namespace AppTrackVSProj
         {
             //TODO : this can be improved in multiple ways.
             string id = Guid.NewGuid().ToString();
-            dataGridView.Rows.Add(Form2.position, Form2.company, Form2.date, Form2.status, Form2.details , id);
+            dataGridView.Rows.Add(Form2.position, Form2.company, Form2.date, Form2.status, Form2.details, id);
             //DB operation = add
             SentApplication item = new SentApplication();
             item.Id = id; // we will use guid for id generation
@@ -65,7 +59,7 @@ namespace AppTrackVSProj
 
         private void btnUpdate_Click(object sender, EventArgs e)
         {
-            if(dataGridView.SelectedRows.Count != 1)
+            if (dataGridView.SelectedRows.Count != 1)
             {
                 MessageBox.Show("You can update only 1 selected row");
             }
@@ -108,14 +102,14 @@ namespace AppTrackVSProj
             foreach (DataGridViewRow item in this.dataGridView.Rows)
             {
                 bool possibleFind = false;
-                for (int i =1; i<5; i++)
+                for (int i = 1; i < 5; i++)
                 {
                     if (item.Cells[i].Value.ToString() == searchTextBox.Text)
                     {
                         possibleFind = true;
                     }
                 }
-                if(!possibleFind) 
+                if (!possibleFind)
                 {
                     item.Visible = false;
                 }
@@ -144,13 +138,13 @@ namespace AppTrackVSProj
         private void Form1_Load(object sender, EventArgs e)
         {
             List<SentApplication> dbData = repo.GetAllItems();
-            foreach(SentApplication elem in dbData)
+            foreach (SentApplication elem in dbData)
             {
-                dataGridView.Rows.Add(elem.PositionName, elem.Company, elem.Date, elem.Status, elem.Details, elem.Id) ;
+                dataGridView.Rows.Add(elem.PositionName, elem.Company, elem.Date, elem.Status, elem.Details, elem.Id);
                 progressBar.Increment(1);
             }
-            if(dbData.Count < 25 ) { progressBar.Maximum = 25; }
-            else if (dbData.Count >= 25 && dbData.Count < 50) { progressBar.Maximum = 50; } 
+            if (dbData.Count < 25) { progressBar.Maximum = 25; }
+            else if (dbData.Count >= 25 && dbData.Count < 50) { progressBar.Maximum = 50; }
             else if (dbData.Count >= 50 && dbData.Count < 100) { progressBar.Maximum = 100; }
             else if (dbData.Count >= 100 && dbData.Count < 200) { progressBar.Maximum = 200; }
             else if (dbData.Count >= 200 && dbData.Count < 250) { progressBar.Maximum = 250; }
@@ -192,7 +186,7 @@ namespace AppTrackVSProj
         private void DataGridView_RowsAdded(object? sender, DataGridViewRowsAddedEventArgs e)
         {
             progressBar.Increment(1);
-            if(progressBar.Value >= progressBar.Maximum)
+            if (progressBar.Value >= progressBar.Maximum)
             {
                 progressBar.Maximum = getNextProgressMaximum(progressBar.Maximum);
                 progressBarHighVal.Text = progressBar.Maximum.ToString();
@@ -201,20 +195,37 @@ namespace AppTrackVSProj
 
         private void DataGridView_RowsRemoved(object? sender, DataGridViewRowsRemovedEventArgs e)
         {
-            int newVal = progressBar.Value - 1 ;
+            int newVal = progressBar.Value - 1;
             progressBar.Value = newVal;
         }
 
         private void buttonProgressBarTest_Click(object sender, EventArgs e)
         {
-        
-                dataGridView.Rows.Add(1, 1, 1, "Application sent", 1);
-                dataGridView.Rows.Add(2, 2, 2, "Application sent", 2);
-                dataGridView.Rows.Add(3, 3, 3, "Application sent", 3);
-                dataGridView.Rows.Add(4, 4, 4, "Application sent", 4);
-                dataGridView.Rows.Add(5, 5, 5, "Application sent", 5);
-                dataGridView.Rows.Add(6, 6, 6, "Application sent", 6);
-                dataGridView.Rows.Add(7, 7, 7, "Application sent", 7);
+            var funFactsNotification = new Form3(this);
+            this.OwnedForms.Append(funFactsNotification);
+            funFactsNotification.Show();
+        }
+
+        protected override void OnLocationChanged(EventArgs e)
+        {
+            base.OnLocationChanged(e);
+            OnFormLocationChanged();
+        }
+
+        protected virtual void OnFormLocationChanged()
+        {
+            FormMoved?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if(this.OwnedForms.Length > 0)
+            {
+                foreach (var form in this.OwnedForms)
+                {
+                    form.Close();
+                }
+            }
         }
     }
 }

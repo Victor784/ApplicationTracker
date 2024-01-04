@@ -28,211 +28,223 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnAdd = new System.Windows.Forms.Button();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.Position = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Company = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Date = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Status = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Details = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdate = new System.Windows.Forms.Button();
-            this.searchTextBox = new System.Windows.Forms.TextBox();
-            this.btnSearch = new System.Windows.Forms.Button();
-            this.btnClear = new System.Windows.Forms.Button();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
-            this.progressBarLowVal = new System.Windows.Forms.Label();
-            this.progressBarHighVal = new System.Windows.Forms.Label();
-            this.buttonProgressBarTest = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
-            this.SuspendLayout();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            btnAdd = new Button();
+            btnDelete = new Button();
+            dataGridView = new DataGridView();
+            Position = new DataGridViewTextBoxColumn();
+            Company = new DataGridViewTextBoxColumn();
+            Date = new DataGridViewTextBoxColumn();
+            Status = new DataGridViewTextBoxColumn();
+            Details = new DataGridViewTextBoxColumn();
+            Id = new DataGridViewTextBoxColumn();
+            btnUpdate = new Button();
+            searchTextBox = new TextBox();
+            btnSearch = new Button();
+            btnClear = new Button();
+            progressBar = new ProgressBar();
+            progressBarLowVal = new Label();
+            progressBarHighVal = new Label();
+            buttonProgressBarTest = new Button();
+            button1 = new Button();
+            ((System.ComponentModel.ISupportInitialize)dataGridView).BeginInit();
+            SuspendLayout();
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(39, 76);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(94, 29);
-            this.btnAdd.TabIndex = 0;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            btnAdd.Location = new Point(39, 76);
+            btnAdd.Name = "btnAdd";
+            btnAdd.Size = new Size(94, 29);
+            btnAdd.TabIndex = 0;
+            btnAdd.Text = "Add";
+            btnAdd.UseVisualStyleBackColor = true;
+            btnAdd.Click += btnAdd_Click;
             // 
             // btnDelete
             // 
-            this.btnDelete.Location = new System.Drawing.Point(167, 76);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(94, 29);
-            this.btnDelete.TabIndex = 1;
-            this.btnDelete.Text = "Delete";
-            this.btnDelete.UseVisualStyleBackColor = true;
-            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
+            btnDelete.Location = new Point(167, 76);
+            btnDelete.Name = "btnDelete";
+            btnDelete.Size = new Size(94, 29);
+            btnDelete.TabIndex = 1;
+            btnDelete.Text = "Delete";
+            btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click;
             // 
             // dataGridView
             // 
-            this.dataGridView.AllowUserToAddRows = false;
-            this.dataGridView.AllowUserToResizeRows = false;
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Position,
-            this.Company,
-            this.Date,
-            this.Status,
-            this.Details,
-            this.Id});
-            this.dataGridView.Location = new System.Drawing.Point(39, 159);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.ReadOnly = true;
-            this.dataGridView.RowHeadersWidth = 51;
-            this.dataGridView.RowTemplate.Height = 29;
-            this.dataGridView.Size = new System.Drawing.Size(675, 192);
-            this.dataGridView.TabIndex = 2;
-            this.dataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            dataGridView.AllowUserToAddRows = false;
+            dataGridView.AllowUserToResizeRows = false;
+            dataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView.Columns.AddRange(new DataGridViewColumn[] { Position, Company, Date, Status, Details, Id });
+            dataGridView.Location = new Point(39, 159);
+            dataGridView.Name = "dataGridView";
+            dataGridView.ReadOnly = true;
+            dataGridView.RowHeadersWidth = 51;
+            dataGridView.RowTemplate.Height = 29;
+            dataGridView.Size = new Size(675, 192);
+            dataGridView.TabIndex = 2;
+            dataGridView.CellContentClick += dataGridView1_CellContentClick;
             // 
             // Position
             // 
-            this.Position.HeaderText = "Position";
-            this.Position.MinimumWidth = 6;
-            this.Position.Name = "Position";
-            this.Position.ReadOnly = true;
-            this.Position.Width = 125;
+            Position.HeaderText = "Position";
+            Position.MinimumWidth = 6;
+            Position.Name = "Position";
+            Position.ReadOnly = true;
+            Position.Width = 125;
             // 
             // Company
             // 
-            this.Company.HeaderText = "Company";
-            this.Company.MinimumWidth = 6;
-            this.Company.Name = "Company";
-            this.Company.ReadOnly = true;
-            this.Company.Width = 125;
+            Company.HeaderText = "Company";
+            Company.MinimumWidth = 6;
+            Company.Name = "Company";
+            Company.ReadOnly = true;
+            Company.Width = 125;
             // 
             // Date
             // 
-            this.Date.HeaderText = "Date";
-            this.Date.MinimumWidth = 6;
-            this.Date.Name = "Date";
-            this.Date.ReadOnly = true;
-            this.Date.Width = 125;
+            Date.HeaderText = "Date";
+            Date.MinimumWidth = 6;
+            Date.Name = "Date";
+            Date.ReadOnly = true;
+            Date.Width = 125;
             // 
             // Status
             // 
-            this.Status.HeaderText = "Status";
-            this.Status.MinimumWidth = 6;
-            this.Status.Name = "Status";
-            this.Status.ReadOnly = true;
-            this.Status.Width = 125;
+            Status.HeaderText = "Status";
+            Status.MinimumWidth = 6;
+            Status.Name = "Status";
+            Status.ReadOnly = true;
+            Status.Width = 125;
             // 
             // Details
             // 
-            this.Details.HeaderText = "Details";
-            this.Details.MinimumWidth = 6;
-            this.Details.Name = "Details";
-            this.Details.ReadOnly = true;
-            this.Details.Width = 125;
+            Details.HeaderText = "Details";
+            Details.MinimumWidth = 6;
+            Details.Name = "Details";
+            Details.ReadOnly = true;
+            Details.Width = 125;
             // 
             // Id
             // 
-            this.Id.HeaderText = "Id";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Visible = false;
-            this.Id.Width = 125;
+            Id.HeaderText = "Id";
+            Id.MinimumWidth = 6;
+            Id.Name = "Id";
+            Id.ReadOnly = true;
+            Id.Visible = false;
+            Id.Width = 125;
             // 
             // btnUpdate
             // 
-            this.btnUpdate.Location = new System.Drawing.Point(300, 76);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(94, 29);
-            this.btnUpdate.TabIndex = 3;
-            this.btnUpdate.Text = "Update";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
+            btnUpdate.Location = new Point(300, 76);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.Size = new Size(94, 29);
+            btnUpdate.TabIndex = 3;
+            btnUpdate.Text = "Update";
+            btnUpdate.UseVisualStyleBackColor = true;
+            btnUpdate.Click += btnUpdate_Click;
             // 
             // searchTextBox
             // 
-            this.searchTextBox.Location = new System.Drawing.Point(486, 77);
-            this.searchTextBox.Name = "searchTextBox";
-            this.searchTextBox.Size = new System.Drawing.Size(125, 27);
-            this.searchTextBox.TabIndex = 4;
+            searchTextBox.Location = new Point(486, 77);
+            searchTextBox.Name = "searchTextBox";
+            searchTextBox.Size = new Size(125, 27);
+            searchTextBox.TabIndex = 4;
             // 
             // btnSearch
             // 
-            this.btnSearch.Location = new System.Drawing.Point(620, 75);
-            this.btnSearch.Name = "btnSearch";
-            this.btnSearch.Size = new System.Drawing.Size(94, 29);
-            this.btnSearch.TabIndex = 5;
-            this.btnSearch.Text = "Search";
-            this.btnSearch.UseVisualStyleBackColor = true;
-            this.btnSearch.Click += new System.EventHandler(this.btnSearch_Click);
+            btnSearch.Location = new Point(620, 75);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(94, 29);
+            btnSearch.TabIndex = 5;
+            btnSearch.Text = "Search";
+            btnSearch.UseVisualStyleBackColor = true;
+            btnSearch.Click += btnSearch_Click;
             // 
             // btnClear
             // 
-            this.btnClear.Location = new System.Drawing.Point(620, 112);
-            this.btnClear.Name = "btnClear";
-            this.btnClear.Size = new System.Drawing.Size(94, 29);
-            this.btnClear.TabIndex = 6;
-            this.btnClear.Text = "Clear";
-            this.btnClear.UseVisualStyleBackColor = true;
-            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
+            btnClear.Location = new Point(620, 112);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(94, 29);
+            btnClear.TabIndex = 6;
+            btnClear.Text = "Clear";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
             // 
             // progressBar
             // 
-            this.progressBar.Location = new System.Drawing.Point(49, 32);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(291, 10);
-            this.progressBar.TabIndex = 10;
+            progressBar.Location = new Point(49, 32);
+            progressBar.Name = "progressBar";
+            progressBar.Size = new Size(291, 10);
+            progressBar.TabIndex = 10;
             // 
             // progressBarLowVal
             // 
-            this.progressBarLowVal.AutoSize = true;
-            this.progressBarLowVal.Location = new System.Drawing.Point(39, 9);
-            this.progressBarLowVal.Name = "progressBarLowVal";
-            this.progressBarLowVal.Size = new System.Drawing.Size(17, 20);
-            this.progressBarLowVal.TabIndex = 8;
-            this.progressBarLowVal.Text = "0";
+            progressBarLowVal.AutoSize = true;
+            progressBarLowVal.Location = new Point(39, 9);
+            progressBarLowVal.Name = "progressBarLowVal";
+            progressBarLowVal.Size = new Size(17, 20);
+            progressBarLowVal.TabIndex = 8;
+            progressBarLowVal.Text = "0";
             // 
             // progressBarHighVal
             // 
-            this.progressBarHighVal.AutoSize = true;
-            this.progressBarHighVal.Location = new System.Drawing.Point(317, 9);
-            this.progressBarHighVal.Name = "progressBarHighVal";
-            this.progressBarHighVal.Size = new System.Drawing.Size(40, 20);
-            this.progressBarHighVal.TabIndex = 9;
-            this.progressBarHighVal.Text = "Goal";
+            progressBarHighVal.AutoSize = true;
+            progressBarHighVal.Location = new Point(317, 9);
+            progressBarHighVal.Name = "progressBarHighVal";
+            progressBarHighVal.Size = new Size(40, 20);
+            progressBarHighVal.TabIndex = 9;
+            progressBarHighVal.Text = "Goal";
             // 
             // buttonProgressBarTest
             // 
-            this.buttonProgressBarTest.Location = new System.Drawing.Point(377, 13);
-            this.buttonProgressBarTest.Name = "buttonProgressBarTest";
-            this.buttonProgressBarTest.Size = new System.Drawing.Size(37, 28);
-            this.buttonProgressBarTest.TabIndex = 11;
-            this.buttonProgressBarTest.Text = "buttonProgressBarTest";
-            this.buttonProgressBarTest.UseVisualStyleBackColor = true;
-            this.buttonProgressBarTest.Click += new System.EventHandler(this.buttonProgressBarTest_Click);
+            buttonProgressBarTest.Location = new Point(377, 13);
+            buttonProgressBarTest.Name = "buttonProgressBarTest";
+            buttonProgressBarTest.Size = new Size(37, 28);
+            buttonProgressBarTest.TabIndex = 11;
+            buttonProgressBarTest.Text = "buttonProgressBarTest";
+            buttonProgressBarTest.UseVisualStyleBackColor = true;
+            buttonProgressBarTest.Click += buttonProgressBarTest_Click;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(437, 15);
+            button1.Name = "button1";
+            button1.Size = new Size(28, 27);
+            button1.TabIndex = 12;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click_1;
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(816, 450);
-            this.Controls.Add(this.buttonProgressBarTest);
-            this.Controls.Add(this.progressBarHighVal);
-            this.Controls.Add(this.progressBarLowVal);
-            this.Controls.Add(this.progressBar);
-            this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.searchTextBox);
-            this.Controls.Add(this.btnUpdate);
-            this.Controls.Add(this.dataGridView);
-            this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnAdd);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
-            this.ResumeLayout(false);
-            this.PerformLayout();
-
+            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(816, 450);
+            Controls.Add(button1);
+            Controls.Add(buttonProgressBarTest);
+            Controls.Add(progressBarHighVal);
+            Controls.Add(progressBarLowVal);
+            Controls.Add(progressBar);
+            Controls.Add(btnClear);
+            Controls.Add(btnSearch);
+            Controls.Add(searchTextBox);
+            Controls.Add(btnUpdate);
+            Controls.Add(dataGridView);
+            Controls.Add(btnDelete);
+            Controls.Add(btnAdd);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            Location = new Point(500, 500);
+            MaximizeBox = false;
+            MaximumSize = new Size(834, 497);
+            MinimizeBox = false;
+            MinimumSize = new Size(834, 497);
+            Name = "Form1";
+            Text = "Form1";
+            Load += Form1_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
+            ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
@@ -254,5 +266,6 @@
         private Label progressBarLowVal;
         private Label progressBarHighVal;
         private Button buttonProgressBarTest;
+        private Button button1;
     }
 }
