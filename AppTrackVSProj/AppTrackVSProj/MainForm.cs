@@ -5,11 +5,11 @@ using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace AppTrackVSProj
 {
-    public partial class Form1 : Form
+    public partial class MainForm : Form
     {
 
         public event EventHandler FormMoved;
-        public Form1()
+        public MainForm()
         {
             InitializeComponent();
             dataGridView.RowsAdded += DataGridView_RowsAdded;
@@ -25,7 +25,7 @@ namespace AppTrackVSProj
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var myForm = new Form2();
+            var myForm = new AddApplicationForm();
             myForm.Show();
             myForm.ButtonSaveClicked += form2_saveRequest;
         }
@@ -34,15 +34,15 @@ namespace AppTrackVSProj
         {
             //TODO : this can be improved in multiple ways.
             string id = Guid.NewGuid().ToString();
-            dataGridView.Rows.Add(Form2.position, Form2.company, Form2.date, Form2.status, Form2.details, id);
+            dataGridView.Rows.Add(AddApplicationForm.position, AddApplicationForm.company, AddApplicationForm.date, AddApplicationForm.status, AddApplicationForm.details, id);
             //DB operation = add
             SentApplication item = new SentApplication();
             item.Id = id; // we will use guid for id generation
-            item.PositionName = Form2.position;
-            item.Company = Form2.company;
-            item.Date = Form2.date;
-            item.Status = Form2.status;
-            item.Details = Form2.details;
+            item.PositionName = AddApplicationForm.position;
+            item.Company = AddApplicationForm.company;
+            item.Date = AddApplicationForm.date;
+            item.Status = AddApplicationForm.status;
+            item.Details = AddApplicationForm.details;
             repo.InsertItem(item);
             //end of DB operation
         }
@@ -201,7 +201,14 @@ namespace AppTrackVSProj
 
         private void buttonProgressBarTest_Click(object sender, EventArgs e)
         {
-            var funFactsNotification = new Form3(this);
+            dataGridView.Rows.Add(1, 1, 1, "Application sent", 1);
+            dataGridView.Rows.Add(2, 2, 2, "Application sent", 2);
+            dataGridView.Rows.Add(3, 3, 3, "Application sent", 3);
+            dataGridView.Rows.Add(4, 4, 4, "Application sent", 4);
+            dataGridView.Rows.Add(5, 5, 5, "Application sent", 5);
+            dataGridView.Rows.Add(6, 6, 6, "Application sent", 6);
+            dataGridView.Rows.Add(7, 7, 7, "Application sent", 7);
+            var funFactsNotification = new NotificationForm(this);
             this.OwnedForms.Append(funFactsNotification);
             funFactsNotification.Show();
         }

@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace AppTrackVSProj
 {
-    public partial class Form2 : Form
+    public partial class AddApplicationForm : Form
     {
         public event EventHandler ButtonSaveClicked;
 
@@ -19,7 +19,7 @@ namespace AppTrackVSProj
         public static string date = "";
         public static string status = "";
         public static string details = "";
-        public Form2()
+        public AddApplicationForm()
         {
             InitializeComponent();
         }

@@ -1,6 +1,6 @@
 ﻿namespace AppTrackVSProj
 {
-    partial class Form3
+    partial class NotificationForm
     {
         /// <summary>
         /// Required designer variable.

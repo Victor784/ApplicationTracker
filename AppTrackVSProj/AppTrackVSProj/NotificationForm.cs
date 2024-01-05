@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace AppTrackVSProj
 {
-    public partial class Form3 : Form
+    public partial class NotificationForm : Form
     {
-        public Form3(Form owner)
+        public NotificationForm(Form owner)
         {
             
             InitializeComponent();
@@ -22,7 +22,7 @@ namespace AppTrackVSProj
             int yOffset = 60;
             var test = this.Owner;
             this.Location = new System.Drawing.Point(owner.Location.X + xOffset, owner.Location.Y + yOffset);
-            if (owner is Form1 parentForm)
+            if (owner is MainForm parentForm)
             {
                 parentForm.FormMoved += ParentForm_ParentLocationChanged;
             }
@@ -30,7 +30,7 @@ namespace AppTrackVSProj
         }
         private void ParentForm_ParentLocationChanged(object sender, EventArgs e)
         {
-            if (this.Owner is Form1 parentForm)
+            if (this.Owner is MainForm parentForm)
             {
                 int xOffset = 500;
                 int yOffset = 60;

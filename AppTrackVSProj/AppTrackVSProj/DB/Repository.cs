@@ -40,9 +40,9 @@ namespace AppTrackVSProj
             return _database.Table<SentApplication>().ToList();
         }
     }
-    partial class Form1
+    partial class MainForm
     {
-        private Repository repo = new Repository(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "localstorage", "localstorage.db"));
+        private Repository repo = new Repository(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "DB","localstorage", "localstorage.db"));
     }
 
     /*
