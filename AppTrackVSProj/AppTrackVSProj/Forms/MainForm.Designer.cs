@@ -216,7 +216,7 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += button1_Click_1;
             // 
-            // Form1
+            // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -239,8 +239,8 @@
             MaximumSize = new Size(834, 497);
             MinimizeBox = false;
             MinimumSize = new Size(834, 497);
-            Name = "Form1";
-            Text = "Form1";
+            Name = "MainForm";
+            Text = "Application Tracker";
             Load += Form1_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView).EndInit();
             ResumeLayout(false);

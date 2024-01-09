@@ -19,9 +19,14 @@ namespace AppTrackVSProj
         public static string date = "";
         public static string status = "";
         public static string details = "";
-        public AddApplicationForm()
+        public AddApplicationForm(Form owner)
         {
             InitializeComponent();
+            this.Owner = owner;
+            this.StartPosition = FormStartPosition.Manual;
+            int xOffset = 100;
+            int yOffset = 100;
+            this.Location = new System.Drawing.Point(owner.Location.X + xOffset, owner.Location.Y + yOffset);
         }
 
         private void lbCompany_Click(object sender, EventArgs e)
@@ -62,6 +67,40 @@ namespace AppTrackVSProj
             date = "";
             status = "";
             details = "";
+        }
+
+        private void Details_Click(object sender, EventArgs e)
+        {
+
+        }
+        private bool mouseDown;
+        private Point lastLocation;
+
+        private void AddApplicationForm_MouseDown(object sender, MouseEventArgs e)
+        {
+            mouseDown = true;
+            lastLocation = e.Location;
+        }
+
+        private void AddApplicationForm_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (mouseDown)
+            {
+                this.Location = new Point(
+                    (this.Location.X - lastLocation.X) + e.X, (this.Location.Y - lastLocation.Y) + e.Y);
+
+                this.Update();
+            }
+        }
+
+        private void AddApplicationForm_MouseUp(object sender, MouseEventArgs e)
+        {
+            mouseDown = false;
+        }
+
+        private void AddApplicationForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

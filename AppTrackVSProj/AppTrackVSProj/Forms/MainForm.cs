@@ -2,6 +2,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.DataFormats;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using AppTrackVSProj.DB.Model;
 
 namespace AppTrackVSProj
 {
@@ -9,6 +10,7 @@ namespace AppTrackVSProj
     {
 
         public event EventHandler FormMoved;
+        private NotificationManager notificationManager;
         public MainForm()
         {
             InitializeComponent();
@@ -16,6 +18,7 @@ namespace AppTrackVSProj
             dataGridView.RowsRemoved += DataGridView_RowsRemoved;
             this.StartPosition = FormStartPosition.Manual;
             this.Location = new System.Drawing.Point(500, 250);
+            notificationManager = new NotificationManager(this);
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -25,12 +28,12 @@ namespace AppTrackVSProj
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            var myForm = new AddApplicationForm();
-            myForm.Show();
-            myForm.ButtonSaveClicked += form2_saveRequest;
+            var addForm = new AddApplicationForm(this);
+            addForm.Show();
+            addForm.ButtonSaveClicked += addForm_saveRequest;
         }
 
-        private void form2_saveRequest(object sender, EventArgs e)
+        private void addForm_saveRequest(object sender, EventArgs e)
         {
             //TODO : this can be improved in multiple ways.
             string id = Guid.NewGuid().ToString();
@@ -208,9 +211,7 @@ namespace AppTrackVSProj
             dataGridView.Rows.Add(5, 5, 5, "Application sent", 5);
             dataGridView.Rows.Add(6, 6, 6, "Application sent", 6);
             dataGridView.Rows.Add(7, 7, 7, "Application sent", 7);
-            var funFactsNotification = new NotificationForm(this);
-            this.OwnedForms.Append(funFactsNotification);
-            funFactsNotification.Show();
+            notificationManager.createNotification("testtest");
         }
 
         protected override void OnLocationChanged(EventArgs e)

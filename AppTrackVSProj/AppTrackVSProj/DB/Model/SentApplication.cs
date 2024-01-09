@@ -7,7 +7,7 @@ using SQLite;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
-namespace AppTrackVSProj
+namespace AppTrackVSProj.DB.Model
 {
     public class SentApplication
     {

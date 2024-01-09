@@ -7,6 +7,7 @@ using SQLite;
 using System.Collections.Generic;
 using System.IO;
 using System.Diagnostics;
+using AppTrackVSProj.DB.Model;
 
 namespace AppTrackVSProj
 {

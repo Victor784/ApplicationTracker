@@ -12,15 +12,15 @@ namespace AppTrackVSProj
 {
     public partial class NotificationForm : Form
     {
-        public NotificationForm(Form owner)
+        public NotificationForm(Form owner, string text = "Lorem ipsum lorem ipsum")
         {
             
             InitializeComponent();
+            this.label_for_pop_up.Text = text;
             this.Owner = owner;
             this.StartPosition = FormStartPosition.Manual;
             int xOffset = 500;
             int yOffset = 60;
-            var test = this.Owner;
             this.Location = new System.Drawing.Point(owner.Location.X + xOffset, owner.Location.Y + yOffset);
             if (owner is MainForm parentForm)
             {
@@ -54,15 +54,22 @@ namespace AppTrackVSProj
                 this.Opacity += 0.05;
         }
 
+        System.Windows.Forms.Timer t2 = new System.Windows.Forms.Timer();
         private void Form3_FormClosing(object sender, FormClosingEventArgs e)
         {
-            e.Cancel = true;    
+            if (e.CloseReason == CloseReason.FormOwnerClosing)
+                Close();
+            else
+            {
+                e.Cancel = true;
+                t2.Interval = 50;
+                t2.Tick += new EventHandler(fadeOut);
+                t2.Start();
 
-            t1.Tick += new EventHandler(fadeOut); 
-            t1.Start();
-
-            if (Opacity == 0)  
-                e.Cancel = false;  
+                if (Opacity == 0)
+                    e.Cancel = false;
+            }
+            
 
         }
 
@@ -70,7 +77,7 @@ namespace AppTrackVSProj
         {
             if (Opacity <= 0)     //check if opacity is 0
             {
-                t1.Stop();    //if it is, we stop the timer
+                t2.Stop();    //if it is, we stop the timer
                 Close();   //and we try to close the form
             }
             else
